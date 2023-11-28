@@ -18,8 +18,9 @@
     "jsx": "preserve",
     "paths": {
       "@/*": [
-        "./src/*"
-      ],
+        "./src/*",
+        "./dist/*"
+      ]
     },
     /* Linting */
     "strict": true,

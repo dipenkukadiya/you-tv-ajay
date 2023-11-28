@@ -7,8 +7,6 @@ const service = axios.create({
   timeout: APP_CONFIG.API_TIMEOUT,
 });
 
-
-console.log("This is uri: ", APP_CONFIG);
 // request interceptor
 service.interceptors.request.use(
   (config: any) => {
