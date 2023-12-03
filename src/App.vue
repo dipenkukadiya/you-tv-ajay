@@ -38,7 +38,7 @@ const loadAllSubtitles = () => {
 
 // Page hooks
 onMounted(async () => {
-  videoData.value = await getVideoData("0n47msSQllA");
+  videoData.value = await getVideoData("a2GujJZfXpg");
   // Load values in state
   loadAllVideoStreams();
   loadAllSubtitles();
@@ -61,9 +61,9 @@ onMounted(async () => {
       <div class="video-player">
         <video-player :videoURLs="videoURLs" :subtitles="subtitlsURLs" :muted="false" :thumbnail="videoThumbnail" />
       </div>
-      <!-- <div class="sidebar">
-                                                                                      chat vindow whil go here
-                                                                                    </div> -->
+      <div class="sidebar">
+        chat vindow whil go here
+      </div>
     </div>
   </div>
 </template>
