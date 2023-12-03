@@ -43,7 +43,7 @@ const options = reactive({
   autoMini: true,
   screenshot: true,
   setting: true,
-  loop: false,
+  loop: true,
   flip: false,
   playbackRate: false,
   aspectRatio: true,
