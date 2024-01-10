@@ -47,23 +47,60 @@ onMounted(async () => {
   console.log("Video data fetched: ", videoData.value);
 });
 </script>
-
 <template>
   <div class="body">
     <div class="loading" v-if="videoData === null">
       API is loading...
     </div>
     <div class="video-page" v-else>
-      <div class="video-header">
-        Title: {{ videoData.title }} <br />
-        Uploader: {{ videoData.uploader.name }}
+      
+      <div class="title-overlay">
+        <div class="video-title">
+          {{ videoData.title }}
+        </div>
       </div>
       <div class="video-player">
-        <video-player :videoURLs="videoURLs" :subtitles="subtitlsURLs" :muted="false" :thumbnail="videoThumbnail" />
+        <video :src="videoURLs[0]?.url" controls muted :poster="videoThumbnail" class="video-element"></video>
+      </div>
+      <div class="uploader-name">
+        Uploader: {{ videoData.uploader.name }}
       </div>
       <div class="sidebar">
-        chat vindow whil go here
+        Chat Window will go here
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+.video-page {
+  position: relative;
+}
+
+.uploader-name,
+.title-overlay {
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white; /* Adjust the text color */
+  font-size: 16px; /* Adjust the font size */
+  z-index: 2; /* Ensure the uploader's name and title are above the video */
+}
+
+.uploader-name {
+  margin-top: 10px; /* Adjust the top margin as needed to separate from title */
+}
+
+.video-player {
+  position: relative;
+}
+
+.video-title {
+  margin: 0;
+}
+
+.video-element {
+  width: 100%; /* Make the video fill its container */
+}
+</style>
